@@ -16,6 +16,10 @@ Route::get('/', function () {
 });
 
 
+
 Route::namespace('Admin')->group(function () {
-    Route::resources(['stores'=>'StoresController']);
+    Route::resources(['stores'=>'StoresController'],['middleware' => 'auth']);
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

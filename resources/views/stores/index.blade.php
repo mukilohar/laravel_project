@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_admin')
 @section('content')
 <div class="col-xs-12">
   <a href="{{route('stores.create')}}" class="btn btn-primary">Add New</a>

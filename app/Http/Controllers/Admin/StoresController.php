@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\StoresModel;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreRequest;
+
 use App\Http\Controllers\Controller;
 
 class StoresController extends Controller
@@ -35,7 +37,7 @@ class StoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $store = new StoresModel;        
         $store->fill($request->all());
@@ -72,8 +74,9 @@ class StoresController extends Controller
      * @param  \App\StoresModel  $storesModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StoresModel $store)
+    public function update(StoreRequest $request, StoresModel $store)
     {   
+        
         $store->fill($request->all());
         $store->save();
         return redirect('stores');
